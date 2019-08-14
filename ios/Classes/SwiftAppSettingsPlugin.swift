@@ -2,7 +2,7 @@ import Flutter
 import UIKit
 
 /// Swift app settings plugin with method channel call handler.
-public class SwiftAppSettingsPlugin: NSObject, FlutterPlugin {
+public class AppSettingsPlugin: NSObject, FlutterPlugin {
   /// Private method to open device settings window
   private func openSettings() {
       if let url = URL(string: UIApplication.openSettingsURLString) {
@@ -17,7 +17,7 @@ public class SwiftAppSettingsPlugin: NSObject, FlutterPlugin {
   /// Public register method for Flutter plugin registrar.
   public static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(name: "app_settings", binaryMessenger: registrar.messenger())
-    let instance = SwiftAppSettingsPlugin()
+    let instance = AppSettingsPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
